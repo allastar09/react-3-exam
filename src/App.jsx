@@ -2,28 +2,28 @@ import { createBrowserRouter } from 'react-router';
 import { RouterProvider } from 'react-router/dom';
 import './App.css';
 
-import Layout from './Layout';
-import Home from './Home';
+import Layout from './Layout.jsx';
+import About from './About.jsx';
 import { lazy, Suspense } from 'react';
+import Course from './Course';
 
 function App() {
-  const Catalog = lazy(()=> import('./Catalog'))
+  const Catalog = lazy(()=> import('./Course'))
   const router = createBrowserRouter([
     {
       path: '/',
       element: <Layout />,
       children: [
         {
-          path: 'home',
-          element: <Home />,
+          path: 'about',
+          element: <About />,
         },
         {
-          path: 'catalog',
-          element: <Suspense fallback={<div><h1>Finit Him</h1></div>}>
-            <Catalog/>
-          </Suspense>
-        }
+          path: 'Course',
+          element: <Course />
+        },
       ],
+      
     },
   ]);
 
