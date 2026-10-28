@@ -1,33 +1,35 @@
-import { createBrowserRouter } from 'react-router';
-import { RouterProvider } from 'react-router/dom';
-import './App.css';
+import { createBrowserRouter } from 'react-router'
+import { RouterProvider } from 'react-router/dom'
+import './App.css'
 
-import Layout from './Layout.jsx';
-import About from './About.jsx';
-import { lazy, Suspense } from 'react';
-import Course from './Course';
+import Layout from './Layout.jsx'
+import About from './About.jsx'
+import Course from './Course.jsx'
+import Product from './Product.jsx'
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Layout />,
+    children: [
+      {
+        path: 'about',
+        element: <About />
+      },
+      {
+        path: 'Course',
+        element: <Course />
+      },
+      {
+        path:'product',
+        element: <Product />
+      }
+    ]
+  }
+])
 
 function App() {
-  const Catalog = lazy(()=> import('./Course'))
-  const router = createBrowserRouter([
-    {
-      path: '/',
-      element: <Layout />,
-      children: [
-        {
-          path: 'about',
-          element: <About />,
-        },
-        {
-          path: 'Course',
-          element: <Course />
-        },
-      ],
-      
-    },
-  ]);
-
-  return <RouterProvider router={router} />;
+  return <RouterProvider router={router} />
 }
 
-export default App;
+export default App
