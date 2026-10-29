@@ -3,9 +3,7 @@ import { RouterProvider } from 'react-router/dom'
 import './App.css'
 
 import Layout from './Layout.jsx'
-import About from './About.jsx'
-import Course from './Course.jsx'
-import Product from './Product.jsx'
+import Home from './Home.jsx'
 
 const router = createBrowserRouter([
   {
@@ -13,16 +11,16 @@ const router = createBrowserRouter([
     element: <Layout />,
     children: [
       {
-        path: 'about',
-        element: <About />
+        path: 'home',
+        element: <Home /> 
       },
       {
-        path: 'Course',
-        element: <Course />
+        path: '',
+        element:""
       },
       {
-        path:'product',
-        element: <Product />
+        path:'',
+        element:""
       }
     ]
   }
