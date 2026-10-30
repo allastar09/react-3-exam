@@ -1,7 +1,6 @@
 import React, { useReducer, useState } from 'react'
 import { data } from 'react-router'
 
-
 const Home = () => {
   const initialState = {
     count: 0,
